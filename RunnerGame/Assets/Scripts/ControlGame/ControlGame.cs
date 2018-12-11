@@ -15,21 +15,25 @@ public class ControlGame : MonoBehaviour {
             switch (gameState)
             {
                 case GameStatus.Loading:
-                    Debug.Log("loading");
+                    //the game is too fast =)
                     break;
                 case GameStatus.Defeat:
-                    Debug.Log("Defeat");
+                    Time.timeScale = 0;
+                    gameUI.DefeatUI();
                     break;
                 case GameStatus.Pause:
-                    Debug.Log("Pause");
+                    Time.timeScale = 0;
+                    gameUI.PauseUI();
                     break;
                 case GameStatus.Play:
-                    Debug.Log("Play");
+                    Time.timeScale = 1;
+                    gameUI.PlayUI();
                     break;
             }
         }
     }
 
+    private GameControlUI gameUI;
     private Character player;
     private MapControl mapControl;
 
@@ -44,6 +48,7 @@ public class ControlGame : MonoBehaviour {
         player = GameObject.Find("Player").GetComponent<Character>();
         player.Init();
         mapControl = GameObject.Find("MapControl").GetComponent<MapControl>();
+        gameUI = GetComponent<GameControlUI>();
     }
 
     void GamePreparation()

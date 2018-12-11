@@ -11,4 +11,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0a63472287470e4f904bae8f94af296, type: 3}
   m_Name: PoolSettings
   m_EditorClassIdentifier: 
-  pools: []
+  pools:
+  - name: Plane
+    prefab: {fileID: 1459797438262352, guid: d4aef505e16ed1749b7a40f1c5f859ab, type: 2}
+    size: 4
+    obstacle: 0
+  - name: Cube
+    prefab: {fileID: 1960442068642840, guid: f710fafbd52f31e45a261a12e14e94f8, type: 2}
+    size: 7
+    obstacle: 1
+  - name: Cylinder
+    prefab: {fileID: 1305308780534990, guid: 9ed159594641c0a42a37bc7356ce2632, type: 2}
+    size: 7
+    obstacle: 1
+  - name: Sphere
+    prefab: {fileID: 1413193539159590, guid: b6b8b2868f75e024cb9df99ae8f136ba, type: 2}
+    size: 7
+    obstacle: 1
+  - name: Bonus
+    prefab: {fileID: 1202434458312490, guid: e0b51e8e9b4b4734da42737fbcb4e79c, type: 2}
+    size: 10
+    obstacle: 0

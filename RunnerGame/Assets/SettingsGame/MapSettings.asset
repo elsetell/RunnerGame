@@ -11,6 +11,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70eea0e27cd85db438450825ba046ddc, type: 3}
   m_Name: MapSettings
   m_EditorClassIdentifier: 
-  maxPlatform: 0
-  maxBonus: 0
-  maxObstacle: 0
+  maxPlatform: 3
+  maxBonus: 3
+  maxObstacle: 7

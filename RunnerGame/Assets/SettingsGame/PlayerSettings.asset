@@ -11,6 +11,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36e9d9c05cb05bf4cadf56a9ae4a0b5b, type: 3}
   m_Name: PlayerSettings
   m_EditorClassIdentifier: 
-  angleRotateMax: 0
-  speedMove: 0
-  speedRotate: 0
+  angleRotateMax: 25
+  speedMove: 35
+  speedRotate: 2

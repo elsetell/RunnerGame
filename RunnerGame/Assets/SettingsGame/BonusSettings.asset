@@ -11,6 +11,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a583f7ffd62ac4492b0ba48bd3fc8a, type: 3}
   m_Name: BonusSettings
   m_EditorClassIdentifier: 
-  scoreAdd: 0
-  invul: 0
-  invulSec: 0
+  scoreAdd: 50
+  invul: 1
+  invulSec: 3
