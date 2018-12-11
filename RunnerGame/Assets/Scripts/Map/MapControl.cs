@@ -10,6 +10,7 @@ public class MapControl : MonoBehaviour {
 
     public int maxPlatform;
     public int maxObstacle;
+    public int maxBonus;
 
     private void Start()
     {
@@ -17,6 +18,7 @@ public class MapControl : MonoBehaviour {
         GetNamesObstacle();
         character = GameObject.Find("Player").transform;
     }
+
     private void GetNamesObstacle()
     {
         foreach (Pool pool in pool_manager.pools)
@@ -34,25 +36,26 @@ public class MapControl : MonoBehaviour {
         GameObject platform = pool_manager.GetObject("Plane", new Vector3(character.position.x, -80, 300 * nCreatePlatform));
         if(nCreatePlatform != 0)
         {
-            CreateObstacle(platform.transform);
+            CreateZest(platform.transform, true);
+            CreateZest(platform.transform, false);
         }
         nCreatePlatform++;
     }
 
-    public void CreateObstacle(Transform platform)
+    public void CreateZest(Transform platform, bool obstacle) //create obstacle(true) or bonus(false)
     {
         if (obstacleNames.Count > 0)
         {
             float platformSizeX = platform.GetComponent<Collider>().bounds.size.x;
             float platformSizeZ = platform.GetComponent<Collider>().bounds.size.z;
             Platform parentObstacle = platform.GetComponent<Platform>();
-            int max = maxObstacle;
+            int max = (obstacle) ? maxObstacle : maxBonus;
             for (int i = 0; i < max; i++)
             {
                 float x = platform.position.x + Random.Range(-platformSizeX / 2, platformSizeX / 2);
                 float z = platform.position.z + Random.Range(-platformSizeZ / 2, platformSizeZ / 2);
                 Vector3 posSpawn = new Vector3(x, 0, z);
-                string nameObj = obstacleNames[Random.Range(0, obstacleNames.Count)];
+                string nameObj = (obstacle) ? obstacleNames[Random.Range(0, obstacleNames.Count)] : "Bonus";
                 GameObject Zest = pool_manager.GetObject(nameObj, posSpawn);
                 parentObstacle.obstacles.Add(Zest.GetComponent<IReturnToPool>());
             }

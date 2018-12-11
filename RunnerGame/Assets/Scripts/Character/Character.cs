@@ -16,6 +16,12 @@ public class Character : MonoBehaviour {
     public delegate void CreatePlatform();
     public CreatePlatform createPlatform;
 
+    //bonus var
+    [SerializeField]
+    private GameObject shield;
+    private bool invul;
+    private Coroutine invulСountdown;
+
     public void Init()
     {
         engine = GetComponent<CharacterInputController>();
@@ -46,7 +52,26 @@ public class Character : MonoBehaviour {
 
     public void DestroyCharacter()
     {
-        engine.StopEngine();
-        controlGame.DefeatGame();
+        if (!invul)
+        {
+            engine.StopEngine();
+            controlGame.DefeatGame();
+        }
+    }
+
+    public void TakeBonus(int bonus, float sec)
+    {
+        scoreForBonus += bonus;
+        RefreshScore();
+        invulСountdown = StartCoroutine(Invulnerability(sec));
+    }
+
+    IEnumerator Invulnerability(float sec)
+    {
+        invul = true;
+        shield.SetActive(true);
+        yield return new WaitForSeconds(sec);
+        shield.SetActive(false);
+        invul = false;
     }
 }
