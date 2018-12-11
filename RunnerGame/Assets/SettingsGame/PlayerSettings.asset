@@ -13,4 +13,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   angleRotateMax: 25
   speedMove: 35
-  speedRotate: 2
+  speedRotate: 4
