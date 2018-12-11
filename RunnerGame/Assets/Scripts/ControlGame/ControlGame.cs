@@ -15,12 +15,16 @@ public class ControlGame : MonoBehaviour {
             switch (gameState)
             {
                 case GameStatus.Loading:
+                    Debug.Log("loading");
                     break;
                 case GameStatus.Defeat:
+                    Debug.Log("Defeat");
                     break;
                 case GameStatus.Pause:
+                    Debug.Log("Pause");
                     break;
                 case GameStatus.Play:
+                    Debug.Log("Play");
                     break;
             }
         }

@@ -2,16 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
+public class Pool
+{
+    public string name;
+    public GameObject prefab;
+    public int size;
+    public bool obstacle;
+}
 public class PoolObjects : MonoBehaviour {
-    [System.Serializable]
-    public class Pool
-    {
-        public string name;
-        public GameObject prefab;
-        public int size;
-        public bool obstacle;
-    }
-
     public List<Pool> pools;
     private Dictionary<string, List<GameObject>> poolDict;
     private Transform objectsParent;

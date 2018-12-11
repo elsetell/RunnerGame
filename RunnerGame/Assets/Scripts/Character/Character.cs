@@ -43,4 +43,10 @@ public class Character : MonoBehaviour {
         score = scoreForBonus + distance;
         ui_controller.RefreshScoreUI(distance, score);
     }
+
+    public void DestroyCharacter()
+    {
+        engine.StopEngine();
+        controlGame.DefeatGame();
+    }
 }
