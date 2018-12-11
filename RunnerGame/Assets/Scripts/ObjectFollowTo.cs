@@ -17,7 +17,6 @@ public class ObjectFollowTo : MonoBehaviour {
         skyObj.gameObject.AddComponent<ObjectFollowTo>();
         ObjectFollowTo sky = skyObj.GetComponent<ObjectFollowTo>();
         sky.player = player;
-        sky.offset.z = -320;
     }
 #endif
     void LateUpdate()
