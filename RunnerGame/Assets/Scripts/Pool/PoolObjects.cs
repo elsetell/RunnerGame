@@ -3,15 +3,29 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PoolObjects : MonoBehaviour {
-    public PoolSettings poolSettings;
+    [System.Serializable]
+    public class Pool
+    {
+        public string name;
+        public GameObject prefab;
+        public int size;
+        public bool obstacle;
+    }
+
+    public List<Pool> pools;
     private Dictionary<string, List<GameObject>> poolDict;
     private Transform objectsParent;
+
+    void Start()
+    {
+        CreatePool();
+    }
 
     public void CreatePool()
     {
         poolDict = new Dictionary<string, List<GameObject>>();
         objectsParent = new GameObject("Pool").transform;
-        foreach (Pool pool in poolSettings.pools)
+        foreach (Pool pool in pools)
         {
             List<GameObject> objectPool = new List<GameObject>();
             poolDict.Add(pool.name, objectPool);
@@ -48,7 +62,7 @@ public class PoolObjects : MonoBehaviour {
 
     private Pool GetPoolByName(string name)
     {
-        foreach (Pool pool in poolSettings.pools)
+        foreach (Pool pool in pools)
             if (pool.name == name)
                 return pool;
         return null;

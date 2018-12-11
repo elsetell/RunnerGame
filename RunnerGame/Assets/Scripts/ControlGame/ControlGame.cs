@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ControlGame : MonoBehaviour {
-    private enum GameStatus { Loading,Defeat,Pause,Play }
+    private enum GameStatus { Loading, Defeat, Pause, Play }
     [SerializeField]
     private GameStatus gameState;
     private GameStatus GameState
@@ -27,6 +27,7 @@ public class ControlGame : MonoBehaviour {
     }
 
     private Character player;
+    private MapControl mapControl;
 
     void Start()
     {
@@ -36,15 +37,15 @@ public class ControlGame : MonoBehaviour {
 
     private void Init()
     {
-        //getMap
         player = GameObject.Find("Player").GetComponent<Character>();
         player.Init();
+        mapControl = GameObject.Find("MapControl").GetComponent<MapControl>();
     }
 
     void GamePreparation()
     {
         GameState = GameStatus.Loading;
-        //createMap
+        mapControl.CreateMap();
         StartGame();
     }
     public void StartGame()
@@ -71,5 +72,4 @@ public class ControlGame : MonoBehaviour {
         if (Input.GetKeyUp(KeyCode.Escape) && GameState == GameStatus.Play)
             GameState = GameStatus.Pause;
     }
-
 }

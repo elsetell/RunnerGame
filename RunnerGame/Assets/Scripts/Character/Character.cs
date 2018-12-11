@@ -13,6 +13,9 @@ public class Character : MonoBehaviour {
     private int scoreForBonus;
     private int score;
 
+    public delegate void CreatePlatform();
+    public CreatePlatform createPlatform;
+
     public void Init()
     {
         engine = GetComponent<CharacterInputController>();
@@ -20,6 +23,9 @@ public class Character : MonoBehaviour {
         ui_controller = GetComponent<CharacterUIController>();
         controlGame = GameObject.Find("GameControl").GetComponent<ControlGame>();
         startPos = transform.position;
+
+        MapControl mapControl = GameObject.Find("MapControl").GetComponent<MapControl>();
+        createPlatform = mapControl.CreatePlatform;
     }
 
     public void StartFly()

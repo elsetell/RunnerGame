@@ -2,15 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Platform : MonoBehaviour {
+public class Platform : MonoBehaviour, IReturnToPool {
+    public void ReturnToPool()
+    {
+        gameObject.SetActive(false);
+    }
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            other.GetComponent<Character>().createPlatform();
+            ReturnToPool();
+        }
+    }
 }
