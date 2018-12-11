@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Name: PlayerSettings
   m_EditorClassIdentifier: 
   angleRotateMax: 25
-  speedMove: 35
+  speedMove: 75
   speedRotate: 4

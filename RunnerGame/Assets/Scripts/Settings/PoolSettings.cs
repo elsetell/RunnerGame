@@ -7,7 +7,6 @@ public class Pool
     public string name;
     public GameObject prefab;
     public int size;
-    public bool obstacle;
 }
 
 [CreateAssetMenu(menuName = "Game/PoolSettings", fileName = "PoolSettings")]

@@ -108,6 +108,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86d70f634a692774395e9eeb9bbc45a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  invul: 1
-  invulSec: 3
-  scoreAdd: 50
+  bonuSettings: {fileID: 11400000, guid: 3edadd7a6dcbda74195debfa1b14ca96, type: 2}

@@ -2,18 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Obstacle : MonoBehaviour,IReturnToPool {
+public class Obstacle : UnitGamePlay {
 
-    void OnTriggerEnter(Collider other)
+    protected override void Action(Collider other)
     {
-        if (other.tag == "Player")
-        {
-            other.GetComponent<Character>().DestroyCharacter();
-        }
-    }
-
-    public void ReturnToPool()
-    {
-        gameObject.SetActive(false);
+        other.GetComponent<Character>().DestroyCharacter();
     }
 }

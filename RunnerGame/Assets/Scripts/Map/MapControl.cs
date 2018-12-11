@@ -20,7 +20,7 @@ public class MapControl : MonoBehaviour {
     private void GetNamesObstacle()
     {
         foreach (Pool pool in pool_manager.poolSettings.pools)
-            if (pool.obstacle)
+            if (pool.prefab.GetComponent<UnitGamePlay>() is Obstacle)
                 obstacleNames.Add(pool.name);
     }
     public void CreateMap()

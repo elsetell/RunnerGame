@@ -11,12 +11,6 @@ public class ObjectFollowTo : MonoBehaviour {
     {
         UnityEngine.XR.InputTracking.disablePositionalTracking = true;
         Input.gyro.enabled = true;
-
-        Transform skyObj = transform.GetChild(0);
-        skyObj.SetParent(null);
-        skyObj.gameObject.AddComponent<ObjectFollowTo>();
-        ObjectFollowTo sky = skyObj.GetComponent<ObjectFollowTo>();
-        sky.player = player;
     }
 #endif
     void LateUpdate()

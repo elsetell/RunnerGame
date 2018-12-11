@@ -63,7 +63,8 @@ public class Character : MonoBehaviour {
     {
         scoreForBonus += bonus;
         RefreshScore();
-        invulСountdown = StartCoroutine(Invulnerability(sec));
+        if(sec > 0)
+            invulСountdown = StartCoroutine(Invulnerability(sec));
     }
 
     IEnumerator Invulnerability(float sec)
