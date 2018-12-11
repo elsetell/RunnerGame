@@ -7,6 +7,8 @@ public class CharacterInputController : MonoBehaviour {
     public float speedMove;
     public float speedRotate;
     public float angleRotateMax;
+    public delegate void RefreshDistance();
+    public RefreshDistance refreshDitance;
 
     public void StartEngine()
     {
@@ -23,6 +25,7 @@ public class CharacterInputController : MonoBehaviour {
         {
             MoveCharacter();
             RotateCharacter();
+            refreshDitance();
         }
     }
 
