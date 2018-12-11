@@ -3,14 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class MapControl : MonoBehaviour {
+    [SerializeField]
+    private MapSettings mapSettings;
     private PoolObjects pool_manager;
     private int nCreatePlatform;
     private Transform character;
     private List<string> obstacleNames = new List<string>();
-
-    public int maxPlatform;
-    public int maxObstacle;
-    public int maxBonus;
 
     private void Start()
     {
@@ -21,19 +19,19 @@ public class MapControl : MonoBehaviour {
 
     private void GetNamesObstacle()
     {
-        foreach (Pool pool in pool_manager.pools)
+        foreach (Pool pool in pool_manager.poolSettings.pools)
             if (pool.obstacle)
                 obstacleNames.Add(pool.name);
     }
     public void CreateMap()
     {
-        for (int i = 0; i < maxPlatform; i++)
+        for (int i = 0; i < mapSettings.maxPlatform; i++)
             CreatePlatform();
     }
 
     public void CreatePlatform()
     {
-        GameObject platform = pool_manager.GetObject("Plane", new Vector3(character.position.x, -80, 300 * nCreatePlatform));
+        GameObject platform = pool_manager.GetObject("Plane", new Vector3(character.position.x, -20, 300 * nCreatePlatform));
         if(nCreatePlatform != 0)
         {
             CreateZest(platform.transform, true);
@@ -49,7 +47,7 @@ public class MapControl : MonoBehaviour {
             float platformSizeX = platform.GetComponent<Collider>().bounds.size.x;
             float platformSizeZ = platform.GetComponent<Collider>().bounds.size.z;
             Platform parentObstacle = platform.GetComponent<Platform>();
-            int max = (obstacle) ? maxObstacle : maxBonus;
+            int max = (obstacle) ? mapSettings.maxObstacle : mapSettings.maxBonus;
             for (int i = 0; i < max; i++)
             {
                 float x = platform.position.x + Random.Range(-platformSizeX / 2, platformSizeX / 2);
