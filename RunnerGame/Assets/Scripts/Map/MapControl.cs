@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(PoolObjects))]
 public class MapControl : MonoBehaviour {
     [SerializeField]
     private MapSettings mapSettings;
@@ -14,7 +15,7 @@ public class MapControl : MonoBehaviour {
     {
         pool_manager = GetComponent<PoolObjects>();
         GetNamesObstacle();
-        character = GameObject.Find("Player").transform;
+        character = GameObject.FindWithTag("Player").transform;
     }
 
     private void GetNamesObstacle()

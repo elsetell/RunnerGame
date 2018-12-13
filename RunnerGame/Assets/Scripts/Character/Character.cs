@@ -1,7 +1,8 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(CharacterInputController))]
+[RequireComponent(typeof(CharacterUIController))]
 public class Character : MonoBehaviour {
     private ControlGame controlGame;
     private CharacterInputController engine;

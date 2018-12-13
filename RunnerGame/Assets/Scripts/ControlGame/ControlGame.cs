@@ -1,7 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
+[RequireComponent(typeof(GameControlUI))]
 public class ControlGame : MonoBehaviour {
     private enum GameStatus { Loading, Defeat, Pause, Play }
     [SerializeField]
